@@ -30,10 +30,10 @@ public class Routs {
             get("/",ctx -> ctx.result(new ObjectMapper().writeValueAsString("Hello World")), Role.ANYONE);
             path("/hotel", () ->{
                 get(hotelController.getAll(), Role.ANYONE);
+                put(hotelController.create(), Role.ANYONE);
                 path("/{id}", () -> {
                     post(hotelController.update(), Role.ANYONE);
                     get(hotelController.getById(), Role.ANYONE);
-                    put(hotelController.create(), Role.ANYONE);
                     delete(hotelController.delete(), Role.ANYONE);
                     get("/rooms", hotelController.getHotelRooms(), Role.ANYONE);
                 });

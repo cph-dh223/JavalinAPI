@@ -18,6 +18,7 @@ public class main {
     public static void startServer(int port) {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
         ApplicationConfig applicationConfig = ApplicationConfig.getInstance(emf);
+        setup(emf);
         applicationConfig
                 .initiateServer()
                 .startServer(port)
@@ -32,6 +33,7 @@ public class main {
 
     private static void setup(EntityManagerFactory emf){
         try (EntityManager em = emf.createEntityManager()) {
+            if(em.find(Hotel.class, 1) != null) return;
             em.getTransaction().begin();
             em.createQuery("DELETE FROM Room r").executeUpdate();
             em.createQuery("DELETE FROM Hotel h").executeUpdate();
