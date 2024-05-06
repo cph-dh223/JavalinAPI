@@ -1,4 +1,3 @@
 .private
 
-target/
-!target/app.jar
+target/*
