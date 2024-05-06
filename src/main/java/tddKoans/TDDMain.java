@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TDDMain {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
+    // public static void main(String[] args) {
+    //     System.out.println("Hello world!");
+    // }
 
     public static String greet(String string) {
         if(string == null) string = "my friend";
