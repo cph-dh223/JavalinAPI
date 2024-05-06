@@ -18,7 +18,7 @@ public class main {
     }
 
     public static void startServer(int port) {
-        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig(false, false);
+        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig(false, true);
         ApplicationConfig applicationConfig = ApplicationConfig.getInstance(emf);
         applicationConfig
                 .initiateServer()
