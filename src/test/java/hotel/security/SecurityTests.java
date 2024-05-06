@@ -37,11 +37,10 @@ public class SecurityTests {
     public static void beforeAll(){
         RestAssured.baseURI = BASE_URL;
         objectMapper.findAndRegisterModules();
-        HibernateConfig.setTestMode(true);
         
 
         // Setup test database using docker testcontainers
-        emfTest = HibernateConfig.getEntityManagerFactoryForTest();
+        emfTest = HibernateConfig.getEntityManagerFactoryConfig(true, false);
 
         // Start server
         appConfig = ApplicationConfig.getInstance(emfTest);
@@ -65,7 +64,6 @@ public class SecurityTests {
     
     @AfterAll
     static void afterAll() {
-        HibernateConfig.setTestMode(false);
         appConfig.stopServer();
     }
     
