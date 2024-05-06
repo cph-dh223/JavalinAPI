@@ -54,23 +54,23 @@ public class UserDAO implements ISecurityDAO{
         return user;
     }
 
-    public static void main(String[] args) {
-        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
-        UserDAO dao = new UserDAO(emf);
-        User user = dao.createUser("David", "1234");
-        User admin = dao.createUser("Admin", "admin");
-        dao.addRoleToUser("Admin", "admin");
-        System.out.println(user.getUsername());
-        System.out.println(admin.getUsername());
-        try {
-            User verifyedUser = dao.verifyUser("David", "1234");
-            User verifyedAdmin = dao.verifyUser("Admin", "admin");
-            System.out.println(verifyedUser.getUsername());
-            System.out.println(verifyedAdmin.getUsername());
-        } catch (EntityNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+    // public static void main(String[] args) {
+    //     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
+    //     UserDAO dao = new UserDAO(emf);
+    //     User user = dao.createUser("David", "1234");
+    //     User admin = dao.createUser("Admin", "admin");
+    //     dao.addRoleToUser("Admin", "admin");
+    //     System.out.println(user.getUsername());
+    //     System.out.println(admin.getUsername());
+    //     try {
+    //         User verifyedUser = dao.verifyUser("David", "1234");
+    //         User verifyedAdmin = dao.verifyUser("Admin", "admin");
+    //         System.out.println(verifyedUser.getUsername());
+    //         System.out.println(verifyedAdmin.getUsername());
+    //     } catch (EntityNotFoundException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
 
     @Override

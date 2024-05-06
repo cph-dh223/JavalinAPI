@@ -11,7 +11,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class main {
     public static void main(String[] args) {
@@ -19,8 +18,7 @@ public class main {
     }
 
     public static void startServer(int port) {
-        ObjectMapper om = new ObjectMapper();
-        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
+        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig(false);
         ApplicationConfig applicationConfig = ApplicationConfig.getInstance(emf);
         applicationConfig
                 .initiateServer()
