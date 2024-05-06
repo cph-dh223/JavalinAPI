@@ -10,15 +10,13 @@ import hotel.ressources.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
-
-
 public class main {
     public static void main(String[] args) {
         startServer(7070);
     }
 
     public static void startServer(int port) {
-        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig(false, true);
+        EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
         ApplicationConfig applicationConfig = ApplicationConfig.getInstance(emf);
         applicationConfig
                 .initiateServer()
