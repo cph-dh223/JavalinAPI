@@ -18,6 +18,7 @@ jobs:
           distribution: 'temurin'
       -
         name: Build with Maven
+        working-directory: ./backend
         run: mvn --batch-mode --update-snapshots package
       -
         # https://docs.docker.com/build/ci/github-actions/tr
