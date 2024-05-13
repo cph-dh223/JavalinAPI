@@ -1,3 +1,4 @@
 .private
 backend/target/*
 !target/app.jar
+_frontend
